@@ -20,7 +20,7 @@ with open(file,'r') as f:
                 datas.append([l])
 
         # datas.extend(item['desc'].split("。"))
-        if i>150000:
+        if i>1550000:
             break
 
 print(datas[:10])
