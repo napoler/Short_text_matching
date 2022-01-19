@@ -80,7 +80,7 @@ class ShortMatch(pl.LightningModule):
     def __init__(self, lr=1e-5,
                  optimizer_name="AdamW",
                  pretrained="uer/chinese_roberta_L-2_H-128",
-                 dropout=0.2,
+                 dropout=0.4,
                  batch_size=32,
                  num_workers=2,
                  trainfile="./data/train.pkt",
