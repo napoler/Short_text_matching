@@ -204,7 +204,7 @@ class ShortMatch(pl.LightningModule):
         T_mult = 2
         # scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience=500, min_lr=1.0e-8)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=500, T_mult=T_mult, eta_min=0,
-                                                                         verbose=True)
+                                                                         verbose=False)
         lr_scheduler = {
             #            'optimizer': optimizer,
             'scheduler': scheduler,

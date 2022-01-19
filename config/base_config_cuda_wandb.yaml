@@ -7,9 +7,35 @@ trainer:
        project: ShortMatch
        log_model: false
        prefix: ''
-  checkpoint_callback: null
+  checkpoint_callback: true
+  callbacks:
+  - class_path: pytorch_lightning.callbacks.EarlyStopping
+    init_args:
+      monitor: val_loss
+      min_delta: 0.0000000
+      patience: 50
+      verbose: true
+      mode: min
+      strict: true
+      check_finite: true
+      check_on_train_epoch_end: false
+  - class_path: pytorch_lightning.callbacks.LearningRateMonitor
+    init_args:
+      logging_interval: step
+      log_momentum: false
+  - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+    init_args:
+      filename: '{epoch}-{val_loss:.2f}-{val_acc:.2f}-{val_precision:.2f}'
+      monitor: val_loss
+      verbose: true
+      save_top_k: 1
+      save_weights_only: false
+      mode: min
+      auto_insert_metric_name: true
+      save_last: true
+#  checkpoint_callback: null
   enable_checkpointing: true
-  callbacks: null
+#  callbacks: null
   default_root_dir: null
   gradient_clip_val: null
   gradient_clip_algorithm: null
