@@ -47,7 +47,7 @@ def collate_fn_del(batch):
     #       attention_mask_b, labels)
     # tmp = []
     # print("batch",len(batch[0]))
-    if len(batch[0]) > 3:
+    if len(batch[0]) > 2:
         for input_ids_one, attention_mask_one, input_ids_b_one, attention_mask_b_one, labels_one in batch:
 
             if input_ids_b in input_ids:
@@ -63,7 +63,7 @@ def collate_fn_del(batch):
         return torch.LongTensor(input_ids), torch.LongTensor(attention_mask), torch.LongTensor(
             input_ids_b), torch.LongTensor(attention_mask_b), torch.LongTensor(labels)
     else:
-        for input_ids_one,_, attention_mask_one in batch:
+        for input_ids_one, attention_mask_one in batch:
             input_ids.append(input_ids_one.tolist())
             attention_mask.append(attention_mask_one.tolist())
 
