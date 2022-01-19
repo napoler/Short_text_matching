@@ -1,0 +1,7 @@
+data/*
+data/model/*
+out/*
+lightning_logs/*
+data/*.pkt
+/data/
+/lightning_logs/
