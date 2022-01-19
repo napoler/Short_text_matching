@@ -15,3 +15,19 @@
 
 
 >tensorboard --logdir lightning_logs
+
+
+# kaggle Demo
+
+```python
+
+# kaggle Demo
+!pip install wandb -q
+from kaggle_secrets import UserSecretsClient
+user_secrets = UserSecretsClient()
+secret_value_0 = user_secrets.get_secret("wandb")
+os.environ["WANDB_SILENT"] = "true"
+os.environ["WANDB_API_KEY"] = secret_value_0
+
+
+```
