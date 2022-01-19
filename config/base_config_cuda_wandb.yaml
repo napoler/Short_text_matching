@@ -92,7 +92,7 @@ trainer:
   move_metrics_to_cpu: false
   multiple_trainloader_mode: max_size_cycle
   stochastic_weight_avg: false
-  terminate_on_nan: null
+  terminate_on_nan: true
 model:
   lr: 1.0e-05
   optimizer_name: AdamW
