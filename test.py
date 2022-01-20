@@ -13,10 +13,11 @@ def mean_pooling(model_output, attention_mask):
 
 
 
+
 tokenizer = BertTokenizer.from_pretrained('data/model')
 model = BertModel.from_pretrained("data/model")
 model.eval()
-text = ["现在我只想陪着孩子走完我的余生，相互有个寄托"]
+text = ["4余万字新译著将出版"]
 encoded_input = tokenizer(text, return_tensors='pt',padding=True,truncation=True )
 output = model(**encoded_input)
 out=mean_pooling(output['last_hidden_state'],encoded_input['attention_mask'])
