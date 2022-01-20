@@ -15,9 +15,14 @@ PATH = "data/model/pytorch_model.bin"
 model = ShortMatch.load_from_checkpoint(checkpoint_path=resume_from_checkpoint)
 model.freeze()
 model.eval()
-model.save_hyperparameters("data/model/myconfig.yaml")
-torch.save(model.state_dict(), PATH)
+# model.save_hyperparameters("data/model/myconfig.yaml")
+# torch.save(model.model.state_dict(), PATH)
+# print(dir(model.model.save_pretrained("data/model")))
 
+model.model.save_pretrained("data/model")
+model.tokenizer.save_pretrained("data/model")
+model.config._name_or_path = "napoler/chinese_roberta_L-4_H-512_rdrop"
+model.config.save_pretrained("data/model")
 
 # model = TheModelClass(*args, **kwargs)
 # model.load_state_dict(torch.load(PATH))
