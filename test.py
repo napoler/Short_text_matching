@@ -60,3 +60,5 @@ sim=cos(out,outB)
 
 for i,(rank,it) in enumerate(zip(sim.tolist(),full.split("\n"))):
     print(i,rank,it)
+
+
