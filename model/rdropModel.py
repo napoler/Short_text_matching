@@ -136,7 +136,8 @@ class ShortMatch(pl.LightningModule):
                 return pred1, kl_loss / 2 / input_ids.size(0) + loss, loss, kl_loss / input_ids.size(0)
         else:
             loss = kl_loss
-            return pred1, kl_loss / input_ids.size(0)
+            #return pred1, kl_loss / input_ids.size(0)
+            return pred1, kl_loss
         return pred1
 
     def training_step(self, batch, batch_idx):
